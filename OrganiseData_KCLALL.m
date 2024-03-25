@@ -189,12 +189,12 @@ for idIdx = 1:length(PrjAI_ID)
         end
         subset=~strcmp(modifiedLabels, 'NO');
         TAC_subset = TACs.activity(:,subset); 
-        subject_folderIDIF = fullfile(time_activity_curves, [num2str(idIdx - 1)]);
-        mkdir(subject_folderIDIF);
+        subject_folderTACs = fullfile(time_activity_curves, [num2str(idIdx - 1)]);
+        mkdir(subject_folderTACs);
         % Loop through each file
-        for indexIDIF = 1:size(TAC_subset,2)
-            filenameIDIF = sprintf('%s_%d', num2str(idIdx - 1), indexIDIF);
-            dlmwrite(fullfile(subject_folderIDIF, [filenameIDIF, '.txt']), TAC_subset(:,indexIDIF));
+        for indexTACs = 1:size(TAC_subset,2)
+            filenameTACs = sprintf('%s_%d', num2str(idIdx - 1), indexTACs);
+            dlmwrite(fullfile(subject_folderTACs, [filenameTACs, '.txt']), TAC_subset(:,indexTACs));
         end
         
         % ================== Just some checks at the end ============
@@ -268,7 +268,7 @@ subplot(2, 2, 4);
 plot(midFrames(1:15), TAC_subset(1:15, :));
 title('TACs (one subj)');
 xlabel('MidFrames');
-ylabel('IDIF');
+ylabel('TACs');
 set(gca,'FontSize',15)
 grid on;
 
