@@ -231,11 +231,11 @@ figure(2);
 subplot(2, 2, 1);
 plot(midFrames(1:15), LR_blood(1:15, :));
 title('LR Blood Data');
-xlabel('MidFrames');
+xlabel('Time');
 ylabel('LR Blood');
 set(gca,'FontSize',15)
 grid on;
-
+ylim([0,200])
 % Subplot 2
 subplot(2, 2, 2);
 for plotindex = 1:70
@@ -248,10 +248,23 @@ xlabel('Time');
 ylabel('FR Blood');
 grid on;
 set(gca,'FontSize',15)
+ylim([0,200])
 
 
 % Subplot 2
 subplot(2, 2, 3);
+plot(midFrames(1:15), TAC_subset(1:15, :));
+title('TACs (one subj)');
+xlabel('Time');
+ylabel('TACs');
+set(gca,'FontSize',15)
+grid on;
+
+% Set white background for both subplots
+set(gcf, 'Color', 'w');
+
+% Subplot 2
+subplot(2, 2, 4);
 for plotindex = 1:70
     plot(timesBlood(1:800), FR_blood_SUV{plotindex}(1:800));
     hold on;
@@ -262,19 +275,6 @@ xlabel('Time');
 ylabel('FR Blood');
 grid on;
 set(gca,'FontSize',15)
-
-% Subplot 2
-subplot(2, 2, 4);
-plot(midFrames(1:15), TAC_subset(1:15, :));
-title('TACs (one subj)');
-xlabel('MidFrames');
-ylabel('TACs');
-set(gca,'FontSize',15)
-grid on;
-
-% Set white background for both subplots
-set(gcf, 'Color', 'w');
-
 
 %% ALL FUNCTIONS HERE
 
