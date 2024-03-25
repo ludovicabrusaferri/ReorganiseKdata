@@ -1,20 +1,12 @@
 clear all
 %% GET DATA STRUCTURE
-% Get the current username
-currentUsername = getenv('USER');
+workdir='/Users/e410377/Desktop/Ludo/AlexLudo/ReorganiseKdata';
 
-% Check if the username is 'e410377'
-if strcmp(currentUsername, 'e410377')
-    workdir = '/Users/e410377/Desktop/Ludo/AlexLudo/';
-else
-    workdir = '/home/ludo/Documents/AlexLudo/';
-end
-
-scriptdir = [workdir, 'dataformat/'];
-datadir = [workdir, 'OriginalDataKCL_ALL/ProjectAI_ToTransfer/'];
+scriptdir = workdir;
+datadir = [workdir, '/Data/ProjectAI_ToTransfer/'];
 
 %% MAKE OUTDIR 
-outfolder = [workdir, '/ReformattedOriginalDataKCL_ALL/'];
+outfolder = [workdir, '/Data/', '/reformatted/'];
 
 % Check if the directory exists
 if exist(outfolder, 'dir') ~= 7
